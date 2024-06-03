@@ -1,5 +1,9 @@
 import { LitElement, css, html } from 'lit'
 import { customElement, property } from 'lit/decorators.js'
+import './intro-to-lit/hello-world'
+import './intro-to-lit/todo-list'
+// import './custom-attribute-converters/date-display'
+import './custom-attribute-converters/date-display-whit-converter'
 import litLogo from './assets/lit.svg'
 import viteLogo from '/vite.svg'
 
@@ -23,7 +27,7 @@ export class MyElement extends LitElement {
   @property({ type: Number })
   count = 0
 
-  render() {
+  render () {
     return html`
       <div>
         <a href="https://vitejs.dev" target="_blank">
@@ -39,11 +43,14 @@ export class MyElement extends LitElement {
           count is ${this.count}
         </button>
       </div>
-      <p class="read-the-docs">${this.docsHint}</p>
+      <!-- EJERCICIOS -->
+      <hello-world message="I'm Spider Man"></hello-world>
+      <todo-list></todo-list>
+      <date-display-with-converter date="05/03/24"></date-display-with-converter>
     `
   }
 
-  private _onClick() {
+  private _onClick () {
     this.count++
   }
 
