@@ -1,7 +1,7 @@
 import { LitElement, css, html } from "lit"
 import { customElement } from "lit/decorators.js"
 
-import "../secret-pass"
+import "../base-input"
 
 @customElement("contact-form")
 export class ContactForm extends LitElement {
