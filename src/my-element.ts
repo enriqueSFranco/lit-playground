@@ -2,8 +2,11 @@ import { LitElement, css, html } from 'lit'
 import { customElement, property } from 'lit/decorators.js'
 import './intro-to-lit/hello-world'
 import './intro-to-lit/todo-list'
-// import './custom-attribute-converters/date-display'
+import './components/ui/contact-form'
 import './custom-attribute-converters/date-display-whit-converter'
+import './async-directive/time-ago'
+import { attributeLogger } from './async-directive/attribute-logger'
+
 import litLogo from './assets/lit.svg'
 import viteLogo from '/vite.svg'
 
@@ -44,9 +47,36 @@ export class MyElement extends LitElement {
         </button>
       </div>
       <!-- EJERCICIOS -->
-      <hello-world message="I'm Spider Man"></hello-world>
-      <todo-list></todo-list>
-      <date-display-with-converter date="05/03/24"></date-display-with-converter>
+      <section>
+        <hello-world message="I'm Spider Man"></hello-world>
+        <hr />
+        
+        <todo-list></todo-list>
+        <hr />
+
+        <date-display-with-converter date="05/05/24"></date-display-with-converter>
+        <hr />
+        
+        
+        <div>
+          <header>
+            <h3>Directivas</h3>
+          </header>
+          
+          <time-ago></time-ago>
+          <hr />
+
+          <div a b>Attribute logger: ${attributeLogger()}</div>
+        </div>
+
+        <div>
+          <header>
+            <h3>Components</h3>
+          </header>
+          
+          <contact-form></contact-form>
+        </div>
+      </section>
     `
   }
 

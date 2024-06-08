@@ -1,20 +1,17 @@
 import { LitElement, css, html } from "lit"
-import { customElement, property } from "lit/decorators.js"
+import { customElement, property, state } from "lit/decorators.js"
 
-type InputType = "text" | "email"
-
-@customElement("base-input")
-export class BaseInput extends LitElement {
+@customElement("secret-pass")
+export class SecretPass extends LitElement {
   static styles = css`
     .input {
       width: 100%;
       font-family: inherit;
       font-size: 1rem;
       color:#706c6c;
-      padding: .6em 0;
+      padding: .6em .3em;
       border: none;
       outline: none;
-      border-bottom: 1px solid var(--color);
       background-color: transparent;
     }
 
@@ -35,22 +32,30 @@ export class BaseInput extends LitElement {
     }
     
     .wrapper {
-      width: 100%;
       position: relative;
-      --color: #5a5a5a7c
+      --color: #5757557e;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid var(--color);
     }
   `
 
   @property()
   title: string = ""
-  @property()
-  type: InputType = "text"
+
+  @state()
+  private _showPassword: boolean = false
+
+  togglePasswordVisibility () {
+    this._showPassword = !this._showPassword
+  }
 
   render () {
     return html`
       <div class="wrapper">
-        <input type="${this.type}" id=${this.title} placeholder=" " class="input" />
+        <input type=${this._showPassword ? "text" : "password"} id=${this.title} placeholder=" " class="input" />
         <label for=${this.title} class="input_label">${this.title}</label>
+        <span @click=${this.togglePasswordVisibility}>${this._showPassword ? '🙈' : '👁️'}</span>
       </div>
     `
   }
