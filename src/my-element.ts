@@ -3,6 +3,7 @@ import { customElement, property } from 'lit/decorators.js'
 import './intro-to-lit/hello-world'
 import './intro-to-lit/todo-list'
 import './components/ui/contact-form'
+import './components/simple-carousel'
 import './custom-attribute-converters/date-display-whit-converter'
 import './async-directive/time-ago'
 import { attributeLogger } from './async-directive/attribute-logger'
@@ -56,8 +57,7 @@ export class MyElement extends LitElement {
 
         <date-display-with-converter date="05/05/24"></date-display-with-converter>
         <hr />
-        
-        
+    
         <div>
           <header>
             <h3>Directivas</h3>
@@ -75,7 +75,16 @@ export class MyElement extends LitElement {
           </header>
           
           <contact-form></contact-form>
+          <simple-carousel>
+            <img src="https://picsum.photos/seed/1/200">
+            <img src="https://picsum.photos/seed/2/200">
+            <img src="https://picsum.photos/seed/3/200">
+            <img src="https://picsum.photos/seed/4/200">
+            <img src="https://picsum.photos/seed/5/200">
+            <img src="https://picsum.photos/seed/6/200">
+          </simple-carousel>
         </div>
+
       </section>
     `
   }
